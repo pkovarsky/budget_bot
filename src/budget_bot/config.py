@@ -3,7 +3,12 @@ from __future__ import annotations
 import os
 from pathlib import Path
 
-from dotenv import load_dotenv
+try:
+    from dotenv import load_dotenv  # type: ignore
+except ModuleNotFoundError:  # pragma: no cover - optional dependency
+    def load_dotenv(*args, **kwargs):
+        """Fallback when python-dotenv isn't installed."""
+        return False
 import openai
 
 # Load environment variables from .env located at project root
