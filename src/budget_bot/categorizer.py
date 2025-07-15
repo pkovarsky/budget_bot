@@ -1,6 +1,8 @@
 """Categorization utilities using OpenAI's API."""
 from typing import Optional
 
+from .config import OPENAI_API_KEY
+
 import logging
 import openai
 
@@ -15,7 +17,10 @@ prompt_template = (
 )
 
 
-client = openai.OpenAI()
+if OPENAI_API_KEY:
+    client = openai.OpenAI(api_key=OPENAI_API_KEY)
+else:
+    client = openai.OpenAI()
 
 
 def categorize_description(description: str) -> Optional[str]:
