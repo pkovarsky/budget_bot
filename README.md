@@ -22,6 +22,11 @@
    ```
 3. Создайте переменные окружения `TELEGRAM_TOKEN` и `OPENAI_API_KEY`.
 4. Запустите бота:
+
    ```bash
-   python -m budget_bot.bot
+   cd src && python -m budget_bot.bot
+   ```
+   или из корня проекта, указав путь к модулям:
+   ```bash
+   PYTHONPATH=src python -m budget_bot.bot
    ```
