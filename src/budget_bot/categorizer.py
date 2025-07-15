@@ -1,6 +1,7 @@
 """Categorization utilities using OpenAI's API."""
 from typing import Optional
 
+import logging
 import openai
 
 # You need to set OPENAI_API_KEY environment variable
@@ -14,10 +15,14 @@ prompt_template = (
 )
 
 
+client = openai.OpenAI()
+
+
 def categorize_description(description: str) -> Optional[str]:
     """Return a category for the description."""
+    logging.info("Description to categorize: %s", description)
     try:
-        response = openai.ChatCompletion.create(
+        response = client.chat.completions.create(
             model="gpt-3.5-turbo",
             messages=[
                 {"role": "system", "content": prompt_template},
@@ -25,6 +30,8 @@ def categorize_description(description: str) -> Optional[str]:
             ],
             max_tokens=10,
         )
-        return response.choices[0].message["content"].strip().lower()
+        logging.info("Response from OpenAI: %s", response)
+        return response.choices[0].message.content.strip().lower()
     except Exception:
+        logging.error("Error categorizing description", exc_info=True)
         return None
