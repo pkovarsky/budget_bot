@@ -17,7 +17,11 @@
    pip install -r requirements.txt
    ```
 2. Создайте переменные окружения `TELEGRAM_TOKEN` и `OPENAI_API_KEY`.
-3. Запустите бота:
+3. Запустите бота из каталога `src`:
    ```bash
-   python -m budget_bot.bot
+   cd src && python -m budget_bot.bot
+   ```
+   или из корня проекта, указав путь к модулям:
+   ```bash
+   PYTHONPATH=src python -m budget_bot.bot
    ```
