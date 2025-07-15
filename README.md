@@ -16,8 +16,13 @@
    ```bash
    pip install -r requirements.txt
    ```
-2. Создайте переменные окружения `TELEGRAM_TOKEN` и `OPENAI_API_KEY`.
-3. Запустите бота:
+2. Для распознавания чеков установите Tesseract OCR и русские языковые данные.
+   Например, в Debian/Ubuntu:
+   ```bash
+   sudo apt install tesseract-ocr tesseract-ocr-rus
+   ```
+3. Создайте переменные окружения `TELEGRAM_TOKEN` и `OPENAI_API_KEY`.
+4. Запустите бота:
    ```bash
    python -m budget_bot.bot
    ```
