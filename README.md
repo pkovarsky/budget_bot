@@ -20,7 +20,8 @@
    ```bash
    sudo apt install tesseract-ocr tesseract-ocr-rus
    ```
-3. Создайте переменные окружения `TELEGRAM_TOKEN` и `OPENAI_API_KEY`.
+3. Скопируйте файл `.env.example` в `.env` и заполните в нём `TELEGRAM_TOKEN` и
+   `OPENAI_API_KEY`.
 4. Запустите бота:
 
    ```bash

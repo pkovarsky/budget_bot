@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import logging
-import os
 from pathlib import Path
 from typing import Tuple
 
@@ -12,11 +11,12 @@ from .data import load_data, save_data
 from .categorizer import categorize_description
 from .receipt import parse_receipt_image
 from .utils import parse_expense_message
+from .config import TELEGRAM_TOKEN
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-TOKEN = os.getenv("TELEGRAM_TOKEN")
+TOKEN = TELEGRAM_TOKEN
 
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
